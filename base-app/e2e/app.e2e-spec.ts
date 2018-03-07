@@ -9,6 +9,6 @@ describe('base-app App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to bbl!');
+    expect(page.getTitle()).toEqual('Saludos desde Babel!');
   });
 });
