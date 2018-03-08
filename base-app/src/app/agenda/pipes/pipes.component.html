@@ -1,0 +1,28 @@
+<div class="mb-3">
+  <div class="align-items-center">
+    <div class="text-center">
+      <div class="card">
+        <div class="card-header">
+          Pipes
+        </div>
+        <div class="card-body">
+          Tenemoss diversas variables
+        </div>
+        <div class="card-footer text-muted">
+          <p>El nombre es {{sNombre | lowercase}}</p>
+          <p>El nombre es {{sNombre | uppercase}}</p>
+          <p>El nombre es {{sNombre | titlecase}}</p>
+          <p>El precio es {{nPrecio | currency: 'EUR'}}</p>
+          <p>El valor es {{nValor | number: '3.2-2'}}</p>
+          <p>El porcentaje es {{nPerc | percent}}</p>
+           <p>La fecha es {{dFecha | date}}</p>
+          <p>La fecha es {{dFecha | date : 'yyyy' }}</p>
+          <p>La fecha es {{dFecha | date : 'fullDate' }}</p>
+          <p>El objeto es </p>
+            <pre>{{oDato | json}}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

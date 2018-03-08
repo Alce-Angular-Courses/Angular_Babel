@@ -7,6 +7,13 @@ import { CoreModule } from './core/core.module';
 import { InicioModule } from './inicio/inicio.module';
 import { AboutModule } from './about/about.module';
 
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+
+registerLocaleData(localeEs);
+
 
 @NgModule({
   declarations: [
@@ -20,7 +27,7 @@ import { AboutModule } from './about/about.module';
     InicioModule,
     AboutModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
