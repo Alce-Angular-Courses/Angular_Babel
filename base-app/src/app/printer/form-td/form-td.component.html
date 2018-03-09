@@ -7,8 +7,20 @@
             <label for="name" class="col-3">Nombre</label>
             <input type="text" class="form-control col-9" 
             name="name" id="name" [(ngModel)]="orderPrint.user.nombre"
-            required
+            required minlength="2" #nameState="ngModel"
             placeholder="Indica tu nombre (es obligatorio)">
+        </div>
+        <div [hidden]="nameState.valid || nameState.untouched ">
+
+            <div class="error-message" 
+                [hidden]="!nameState.errors?.required">
+                El nombre es obligatorio
+            </div>
+            <div class="error-message" 
+                [hidden] = "!nameState.errors?.minlength">
+                El nombre debe tener un mínimo de 2 caracteres
+            </div>
+        
         </div>
 
         <div class="form-group row">
@@ -17,19 +29,37 @@
             <input type="text" class="form-control col-9"
             id="lastname" name="lastname" 
             [(ngModel)]="orderPrint.user.apellidos"
-            required
+            required #apellidosState="ngModel"
             placeholder="Indica tu apellido (es obligatorio)">
-        </div>      
+        </div>    
+        <div [hidden]="apellidosState.valid || apellidosState.untouched " 
+        class="error-message">
+            Los apellidos son obligatorios
+        </div>
+        
         <div class="form-group row">
             <!--Etiqueta / Campo "Telefono"-->
             <label for="phoneNumber" class="col-3">Teléfono</label>
             <input type="text" class="form-control col-9"
             id="phoneNumber" name="phoneNumber"
             [(ngModel)]="orderPrint.user.telefono"
-            required
+            required pattern="^\d{9}$"
+            #telefonoState = ngModel
             placeholder="Indica tu teléfono (es obligatorio)"> 
         </div>
-    </fieldset>  
+    </fieldset>
+    <div [hidden]="telefonoState.valid || telefonoState.untouched ">
+
+        <div class="error-message" 
+            [hidden]="!telefonoState.errors?.required">
+            El telefono es obligatorio
+        </div>
+        <div class="error-message" 
+            [hidden] = "!telefonoState.errors?.pattern">
+            El telefono debe tener 9 dígitos
+        </div>
+    
+    </div>
 
     <!--Radio-Buttos-->
     <fieldset class="form-group">

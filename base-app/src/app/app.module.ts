@@ -10,6 +10,7 @@ import { AboutModule } from './about/about.module';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { TruncarPipe } from './pipes/truncar.pipe';
 
 
 registerLocaleData(localeEs);
@@ -17,7 +18,8 @@ registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TruncarPipe
   ],
   imports: [
     BrowserModule,

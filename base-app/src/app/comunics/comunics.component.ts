@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   <div class="container">
     <div class="row">
       <bbl-padre class="col-6"></bbl-padre>
-
     </div>
   </div>
   `,
