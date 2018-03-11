@@ -10,13 +10,15 @@ import { LibrosBuscarComponent } from './libros-buscar/libros-buscar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LibrosByServiceComponent } from './libros-by-service/libros-by-service.component';
 import { GbooksService } from '../servicios/gbooks.service';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    LibrosRoutingModule
+    LibrosRoutingModule,
+    PipesModule
   ],
   declarations: [
     LibrosComponent,

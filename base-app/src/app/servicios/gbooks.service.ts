@@ -8,7 +8,7 @@ export class GbooksService {
   urlBase: string;
   aLibros: Array<string>;
   constructor(public http: HttpClient) {
-    this.urlBase = 'https://www.googleapis.com/books/v1/volumes?q=intitle:'
+    this.urlBase = 'https://www.googleapis.com/books/v1/volumes?q=intitle:';
   }
 
   getLibrosBasic(clave: string): any {
@@ -21,7 +21,7 @@ export class GbooksService {
     this.aLibros = [];
     const url =   this.urlBase + clave;
 
-    return this.http.get(url).toPromise() 
+    return this.http.get(url).toPromise()
     .then(
       (response: any) => {
         response.items.forEach(element => {

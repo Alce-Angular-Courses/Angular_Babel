@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TruncarPipe } from '../../pipes/truncar.pipe';
 
 @Component({
   selector: 'bbl-libros-buscar',
@@ -16,7 +17,7 @@ export class LibrosBuscarComponent implements OnInit {
 
   ngOnInit() {
     this.aLibros = [];
-    this.urlBase = 'https://www.googleapis.com/books/v1/volumes?q=intitle:'
+    this.urlBase = 'https://www.googleapis.com/books/v1/volumes?q=intitle:';
   }
 
   buscar() {
@@ -49,7 +50,7 @@ export class LibrosBuscarComponent implements OnInit {
             element.volumeInfo.title);
         });
       },
-    )
+    );
 
 
     this.clave = '';
