@@ -1,0 +1,11 @@
+<h3>{{ sTitle }}</h3>
+
+<ul class="list-group">
+  <li class="list-group-item"
+  *ngFor="let item of aItems; let i = index">
+      <span class="col">{{item.nombre}} {{item.apellido}}</span>
+      <span class="col">[ {{item.email}} | {{item.telefono}} ]</span>
+      <button class="btn btn-sm btn-outline-danger"
+        (click)="deleteItem(i)">{{sEtiquetaBtn}}</button>
+  </li>
+</ul>

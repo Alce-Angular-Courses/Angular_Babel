@@ -1,0 +1,84 @@
+<form novalidate [ngClass]="oValidado" #form1="ngForm" (ngSubmit)="enviar()">
+    <!--Text-->  
+    <fieldset>
+        <legend>Nuevo contacto</legend>
+        <div class="form-group row">
+            <!--Etiqueta / Campo "Mombre"-->						
+            <label for="name" class="col-3">Nombre</label>
+            <input type="text" class="form-control col-9" 
+            name="name" id="name" required minlength="3"
+            placeholder="Indica el nombre (es obligatorio)"
+            [(ngModel)]="oContacto.nombre"
+            #nameState="ngModel">
+        </div>
+        <div [hidden]="nameState.valid || nameState.untouched ">
+            <div class="error-message" 
+              [hidden]="!nameState.errors?.required">
+              El nombre es obligatorio</div>
+            <div class="error-message" 
+              [hidden] = "!nameState.errors?.minlength">
+              El nombre debe tener un mínimo de 3 caracteres
+            </div>
+          </div>
+
+        <div class="form-group row">
+            <!--Etiqueta / Campo "Apellidos"-->
+            <label for="lastname"  class="col-3">Apellidos</label>
+            <input type="text" class="form-control col-9"
+            id="lastname" name="lastname" required
+            placeholder="Indica el apellido (es obligatorio)"
+            [(ngModel)]="oContacto.apellido"
+            #apellidoState="ngModel">
+        </div>      
+        <div [hidden]="apellidoState.valid || apellidoState.untouched "
+          class="error-message">
+          <p>El apellido es obligatorio</p>
+        </div>
+
+        <div class="form-group row">
+            <!--Etiqueta / Campo "Telefono"-->
+            <label for="phoneNumber" class="col-3">Teléfono</label>
+            <input type="text" class="form-control col-9"
+            id="phoneNumber" name="phoneNumber" 
+            required pattern="^\d{9}$"
+            placeholder="Indica el teléfono (es obligatorio)"
+            [(ngModel)]="oContacto.telefono"
+            #phoneState="ngModel"> 
+        </div>
+         <div [hidden]="phoneState.valid || phoneState.untouched ">
+            <div class="error-message" 
+                [hidden]="!phoneState.errors?.required">
+                El teléfono es obligatorio</div>
+            <div class="error-message" 
+                [hidden] = "!phoneState.errors?.pattern">
+                El teléfono debe tener 9 digitos
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <!--Etiqueta / Campo "email"-->
+            <label for="email"  class="col-3">Correo</label>
+            <input type="text" class="form-control col-9"
+            id="email" name="email" required
+            placeholder="Indica el correo electrónico"
+            [(ngModel)]="oContacto.email"
+            #emailState="ngModel">
+        </div>      
+        <div [hidden]="emailState.valid || emailState.untouched "
+          class="error-message">
+          <p>El correo electrónico es obligatorio</p>
+        </div>
+    </fieldset>  
+    <div class="row">
+      <div class="col-9 offset-3">
+        <button type="submit" class="btn btn-primary mr-2"
+        [disabled]="form1.invalid">
+            Añadir</button>
+        <button type="button" class="btn btn-primary"
+        (click)="btnBorrar()"
+        [disabled]="form1.pristine">
+            Borrar</button>
+      </div>
+  </div>      
+
+</form>

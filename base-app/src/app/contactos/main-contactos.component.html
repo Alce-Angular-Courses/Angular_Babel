@@ -1,0 +1,17 @@
+<div class="container mb-2">
+  <div class="row align-items-center main">
+      <div class="col text-center">
+          <div class="card">
+            <div class="card-header">
+              Lista de Contactos
+            </div>
+            <div class="card-body">
+              <bbl-altas (outAddContacto)="addContacto($event)"></bbl-altas>
+            </div>
+            <div class="card-footer text-left text-muted" *ngIf="aContactos.length">
+              <bbl-lista [aItems]="aContactos" (outBorrarItem)="deleteContacto($event)"></bbl-lista>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'comunics', loadChildren: './comunics/comunics.module#ComunicsModule' },
   { path: 'agenda', loadChildren: './agenda/agenda.module#AgendaModule' },
   { path: 'libros', loadChildren: './libros/libros.module#LibrosModule' },
+  { path: 'contactos', loadChildren: './contactos/contactos.module#ContactosModule' },
   { path: 'printer', loadChildren: './printer/printer.module#PrinterModule' },
   { path: '', pathMatch: 'full', redirectTo: 'inicio' }
 ];
