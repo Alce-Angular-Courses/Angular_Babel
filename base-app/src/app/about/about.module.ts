@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
+import { ExtraComponent } from './extra/extra.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   declarations: [
-    AboutComponent
+    AboutComponent,
+    ExtraComponent
   ],
   exports: [
     AboutComponent
