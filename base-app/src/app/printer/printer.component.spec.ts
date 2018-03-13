@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrinterComponent } from './printer.component';
+import { FormTdComponent } from './form-td/form-td.component';
+import { FormsModule } from '@angular/forms';
 
 describe('PrinterComponent', () => {
   let component: PrinterComponent;
@@ -8,7 +10,11 @@ describe('PrinterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrinterComponent ]
+      declarations: [
+        PrinterComponent,
+        FormTdComponent
+       ],
+       imports: [FormsModule]
     })
     .compileComponents();
   }));

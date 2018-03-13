@@ -18,7 +18,11 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.oBook = this.catalogo.getBook(id);
+    if (id) {
+      this.oBook = this.catalogo.getBook(id);
+    } else {
+      this.oBook = {id: 0, title: '', autor: '',  description: ''};
+    }
   }
 
     gotoBooks() {

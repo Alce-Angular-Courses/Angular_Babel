@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ComunicsComponent } from './comunics.component';
+import { PadreComponent } from './padre/padre.component';
+import { HijoComponent } from './hijo/hijo.component';
+import { FormsModule } from '@angular/forms';
 
 describe('ComunicsComponent', () => {
   let component: ComunicsComponent;
@@ -8,7 +11,14 @@ describe('ComunicsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComunicsComponent ]
+      declarations: [
+        ComunicsComponent,
+        PadreComponent,
+        HijoComponent
+       ],
+       imports: [
+         FormsModule
+       ]
     })
     .compileComponents();
   }));

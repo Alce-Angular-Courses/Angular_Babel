@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LibrosByServiceComponent } from './libros-by-service.component';
+import { FormsModule } from '@angular/forms';
+import { GbooksService } from '../../servicios/gbooks.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LibrosByServiceComponent', () => {
   let component: LibrosByServiceComponent;
@@ -8,7 +11,16 @@ describe('LibrosByServiceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LibrosByServiceComponent ]
+      declarations: [
+        LibrosByServiceComponent
+      ],
+      imports: [
+        FormsModule,
+        HttpClientModule
+      ],
+      providers: [
+        GbooksService
+      ]
     })
     .compileComponents();
   }));

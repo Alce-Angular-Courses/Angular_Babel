@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LibrosBuscarComponent } from './libros-buscar.component';
+import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../../pipes/pipes.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LibrosBuscarComponent', () => {
   let component: LibrosBuscarComponent;
@@ -8,7 +11,12 @@ describe('LibrosBuscarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LibrosBuscarComponent ]
+      declarations: [ LibrosBuscarComponent ],
+      imports: [
+        FormsModule,
+        HttpClientModule,
+        PipesModule
+      ]
     })
     .compileComponents();
   }));
