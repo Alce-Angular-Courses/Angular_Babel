@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <div class="container">
     <div class="row">
       <bbl-form-td class="col-6"></bbl-form-td>
+      <bbl-form-md class="col-6"></bbl-form-md>
     </div>
   </div>
   `,

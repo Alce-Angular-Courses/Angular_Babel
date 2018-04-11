@@ -1,0 +1,112 @@
+<form [formGroup]="formulario" (submit)= "enviar()">
+  <!--Text-->  
+  <fieldset>
+      <legend>Datos del Usuario</legend>
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Mombre"-->
+          <label for="name" class="col-3">Nombre</label>
+          <input type="text" class="form-control col-9" 
+          name="name" id="name" formControlName="nombre"
+          placeholder="Indica tu nombre (es obligatorio)">
+      </div>
+      <!-- <div [hidden]="nameState.valid || nameState.untouched ">
+
+          <div class="error-message" 
+              [hidden]="!nameState.errors?.required">
+              El nombre es obligatorio
+          </div>
+          <div class="error-message" 
+              [hidden] = "!nameState.errors?.minlength">
+              El nombre debe tener un mínimo de 2 caracteres
+          </div>
+      
+      </div> -->
+
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Apellidos"-->
+          <label for="lastname"  class="col-3">Apellidos</label>
+          <input type="text" class="form-control col-9"
+          id="lastname" name="lastname" formControlName="apellidos"
+          placeholder="Indica tu apellido (es obligatorio)">
+      </div>    
+      <!-- <div [hidden]="apellidosState.valid || apellidosState.untouched " 
+      class="error-message">
+          Los apellidos son obligatorios
+      </div> -->
+      
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Telefono"-->
+          <label for="phoneNumber" class="col-3">Teléfono</label>
+          <input type="text" class="form-control col-9"
+          id="phoneNumber" name="phoneNumber"
+          formControlName="telefono"
+          placeholder="Indica tu teléfono (es obligatorio)"> 
+      </div>
+  </fieldset>
+  <!-- <div [hidden]="telefonoState.valid || telefonoState.untouched ">
+
+      <div class="error-message" 
+          [hidden]="!telefonoState.errors?.required">
+          El telefono es obligatorio
+      </div>
+      <div class="error-message" 
+          [hidden] = "!telefonoState.errors?.pattern">
+          El telefono debe tener 9 dígitos
+      </div>
+  
+  </div> -->
+
+  <!--Radio-Buttos-->
+  <fieldset class="form-group">
+      <legend>Selecciona una Impresora</legend>
+
+          <div class="form-check" *ngFor="let printer of aPrinters">
+              <label class="form-check-label">
+                  <input type="radio" class="form-check-input"
+                      name ="printer" [id]="printer.id" 
+                      [value]="printer" formControlName="printer">
+                      {{ printer.name }}
+              </label>
+          </div>
+ 
+  </fieldset>
+  <!--Checkbox-->   
+  <fieldset class="form-group"> 
+      <legend>Seleción de opciones</legend>
+      <div class="form-check">
+          <label class="form-check-label">
+          <input type="checkbox"  class="form-check-input"
+              id="color" name="color" formControlName="isColor">
+              Imprimir en color
+          </label>
+      </div>
+      <div class="form-check">
+          <label class="form-check-label">
+          <input type="checkbox"  class="form-check-input"
+              id="tono" name="tono" formControlName="isClaro"> 
+              Tono claro</label>			
+      </div>
+  </fieldset>
+  <!--Select/options --> 
+  <fieldset class="form-group"> 
+      <legend>Departameto</legend>
+      <div class="form-group row">
+          <select class="form-control"
+              id="select" name="select" formControlName="dpto"> 
+              <option *ngFor="let dpto of aDptos" [ngValue]="dpto"
+              >{{dpto.name}}</option>
+          </select>
+      </div>
+  </fieldset>
+  <div class="form-group row">
+      <button type="submit" class="btn btn-primary mr-2" [disabled]="false">
+          Enviar</button>
+      <button type="button" class="btn btn-primary" 
+      (click)="borrar()" [disabled]="false">
+          Borrar</button>
+  </div>
+</form>
+
+<pre>
+  {{ formulario.value | json}}
+</pre>

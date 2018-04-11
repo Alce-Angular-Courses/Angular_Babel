@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+
+// import * as Rx from 'rxjs/operators';
+// equivalente en node Rx=require(rxjs/operators)
 
 @Injectable()
 export class GbooksService {
@@ -33,4 +38,20 @@ export class GbooksService {
     );
   }
 
+  getLibrosRx(clave: string): Observable<Object> {
+    this.aLibros = [];
+    const url =   this.urlBase + clave;
+
+    return this.http.get<Object>(url).pipe(
+      map( response => this.extractTitles(response) )
+    );
+  }
+
+  private extractTitles(response: any) {
+    if (response.items) {
+      return response.items.map(book => book.volumeInfo.title);
+    } else {
+      return response;
+    }
+  }
 }
